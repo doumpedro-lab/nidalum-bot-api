@@ -13,7 +13,7 @@ export class GeminiProvider implements IAIProvider {
     if (!this.model) {
       const apiKey = await ConfigService.getInstance().getSecret('GEMINI_API_KEY');
       this.genAI = new GoogleGenerativeAI(apiKey);
-      this.model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+      this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     }
     return this.model;
   }
