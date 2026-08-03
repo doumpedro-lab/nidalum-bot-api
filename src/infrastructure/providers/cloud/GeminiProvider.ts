@@ -2,6 +2,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { IAIProvider, TextVariants } from '../../../core/interfaces/IAIProvider';
 import { ConfigService } from '../../../core/config/ConfigService';
 import { logger } from '../../logging/logger';
+import { FeatureFlags } from '../../../../feature-flags.config';
 
 export class GeminiProvider implements IAIProvider {
   public readonly name = 'gemini';
@@ -18,7 +19,7 @@ export class GeminiProvider implements IAIProvider {
   }
 
   async generateVariants(baseText: string, platforms: string[]): Promise<TextVariants> {
-    const isAiEnabled = ConfigService.getInstance().getBoolean('ENABLE_AI', false);
+    const isAiEnabled = FeatureFlags.ENABLE_AI;
     
     if (!isAiEnabled) {
       logger.info('AI is disabled via config, returning base text for all platforms');
