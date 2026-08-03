@@ -74,7 +74,7 @@ export class HealthCheckUseCase {
 
     // 7. Plugins Configuration Check
     results.services.plugins = {};
-    const platforms = ['FACEBOOK', 'INSTAGRAM', 'THREADS', 'PINTEREST'];
+    const platforms = ['FACEBOOK', 'INSTAGRAM', 'THREADS', 'PINTEREST', 'YOUTUBE', 'LINKEDIN', 'X', 'MEDIUM', 'SUBSTACK'];
     for (const p of platforms) {
       const isEnabled = (FeatureFlags as any)[`ENABLE_${p}`] === true;
       if (isEnabled) {

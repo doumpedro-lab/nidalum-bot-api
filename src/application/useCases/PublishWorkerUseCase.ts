@@ -6,6 +6,7 @@ import { FacebookPlugin } from '../../../plugins/social/facebook/FacebookPlugin'
 import { InstagramPlugin } from '../../../plugins/social/instagram/InstagramPlugin';
 import { ThreadsPlugin } from '../../../plugins/social/threads/ThreadsPlugin';
 import { PinterestPlugin } from '../../../plugins/social/pinterest/PinterestPlugin';
+import { YoutubePlugin } from '../../../plugins/social/youtube/YoutubePlugin';
 import { ISocialPlugin } from '../../core/interfaces/ISocialPlugin';
 
 interface WorkerInput {
@@ -28,6 +29,7 @@ export class PublishWorkerUseCase {
     this.plugins.set('instagram', new InstagramPlugin());
     this.plugins.set('threads', new ThreadsPlugin());
     this.plugins.set('pinterest', new PinterestPlugin());
+    this.plugins.set('youtube', new YoutubePlugin());
   }
 
   async execute(input: WorkerInput): Promise<any> {

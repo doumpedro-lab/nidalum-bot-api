@@ -1,16 +1,17 @@
 export const FeatureFlags = {
   // Plugins
-  ENABLE_LINKEDIN: false,
-  ENABLE_X: false,
-  ENABLE_PINTEREST: false,
-  ENABLE_THREADS: false,
-  ENABLE_INSTAGRAM: false,
-  ENABLE_FACEBOOK: false,
-  ENABLE_MEDIUM: false,
-  ENABLE_SUBSTACK: false,
+  ENABLE_LINKEDIN: true,
+  ENABLE_X: true,
+  ENABLE_PINTEREST: true,
+  ENABLE_THREADS: true,
+  ENABLE_INSTAGRAM: true,
+  ENABLE_FACEBOOK: true,
+  ENABLE_MEDIUM: true,
+  ENABLE_SUBSTACK: true,
+  ENABLE_YOUTUBE: true,
   
   // System Modules
-  ENABLE_AI: false,
+  ENABLE_AI: true,
   ENABLE_ANALYTICS: false,
   ENABLE_COST_MONITOR: false,
   ENABLE_AUDIT_TRAIL: false,
