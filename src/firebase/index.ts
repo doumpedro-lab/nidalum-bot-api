@@ -14,7 +14,15 @@ if (!getApps().length) {
     }
   }
 
-  initializeApp(cred ? { credential: cred } : undefined);
+  const appOptions: any = {
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET || 'nidalum-bot.appspot.com'
+  };
+  
+  if (cred) {
+    appOptions.credential = cred;
+  }
+
+  initializeApp(appOptions);
 }
 
 export const db = getFirestore();
