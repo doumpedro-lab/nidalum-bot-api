@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import 'reflect-metadata';
+import './infrastructure/di/container';
 import app from './infrastructure/http/app';
 import { logger } from './infrastructure/logging/logger';
 import { ConfigService } from './core/config/ConfigService';
