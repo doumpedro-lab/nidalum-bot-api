@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.git
+.github
+tests
+jest.config.js
+feature-flags.config.ts
+README.md
+*.md
+.env*

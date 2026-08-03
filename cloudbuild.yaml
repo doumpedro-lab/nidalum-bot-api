@@ -1,0 +1,27 @@
+steps:
+  # Étape 1 : Construire l'image Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/nidalum-social-bot', '.']
+
+  # Étape 2 : Pousser l'image vers Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/nidalum-social-bot']
+
+  # Étape 3 : Déployer sur Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'nidalum-social-bot'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/nidalum-social-bot'
+      - '--region'
+      - 'europe-west1'
+      - '--allow-unauthenticated'
+      - '--set-env-vars'
+      - 'NODE_ENV=production,GCP_PROJECT_ID=$PROJECT_ID'
+      # Pas de secrets ici en clair ! Ils sont lus dynamiquement via le SDK Secret Manager dans le code.
+
+images:
+  - 'gcr.io/$PROJECT_ID/nidalum-social-bot'
